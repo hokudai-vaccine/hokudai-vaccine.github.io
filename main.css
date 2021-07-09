@@ -2,7 +2,7 @@
     --white: white;
     --black: black;
     --primary: #23651C;
-    --secondary: #f0f0f0;
+    --secondary: #86b981;
     --margin: 5vw;
 }
 
@@ -304,4 +304,59 @@ section>h3 {
 
 #website-footer {
     overflow-x: hidden;
+}
+
+.notice {
+    width: 100%;
+    border: 5px solid var(--primary);
+    box-sizing: border-box;
+    margin: 60px 0 60px 0;
+    text-align: center;
+}
+
+.notice>h3 {
+    font-size: 26px;
+    margin: -2px -2px 0 -2px;
+    padding: 2px calc(18px + 2px) 0 calc(18px + 2px);
+    line-height: 2;
+    background-color: var(--primary);
+    color: var(--white);
+    font-weight: bold;
+}
+
+.notice>p {
+    font-weight: bold;
+    padding: 0 18px;
+}
+
+.notice>p>span {
+    font-weight: bold;
+    font-size: 120%;
+    color: rgb(255, 115, 0);
+    text-decoration: underline;
+}
+
+.addition {
+    width: auto;
+    margin: calc(40px + 18px) 0 0 0;
+    padding: calc(40px + 18px) 18px 0 18px;
+    position: relative;
+    border: 2px solid var(--primary);
+    box-sizing: border-box;
+    text-align: center;
+    border-radius: 8px;
+}
+
+.addition::before {
+    content: url(./img/addition.png);
+    position: absolute;
+    top: calc( -1*(40px + 2px));
+    left: calc(50% - (80px / 2));
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 40px;
+    border: var(--primary) solid 2px;
+    background-color: var(--white);
+    z-index: 1;
 }

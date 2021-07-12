@@ -28,13 +28,15 @@ h3 {
     font-size: 26px
 }
 
-section>p>span {
+section>p>span,
+li>span {
     color: var(--primary);
     font-weight: bold;
     text-decoration: underline;
 }
 
-p {
+p,
+li {
     line-height: 2;
     margin: 18px 0 18px 0;
 }

@@ -353,7 +353,7 @@ section>h3 {
 
 .addition::before {
     content: "";
-    background-image: url("./img/addition.png");
+    background-image: url("./img/logo-profile.png");
     background-size: cover;
     position: absolute;
     top: calc( -1*(40px + 2px));

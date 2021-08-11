@@ -70,7 +70,6 @@ p, li {
     text-decoration: none;
     transition: all 0.2s;
     width: fit-content;
-    border: 2px var(--font-color) solid;
 }
 
 .button-b:hover {
@@ -88,7 +87,6 @@ p, li {
     text-decoration: none;
     transition: all 0.2s;
     width: fit-content;
-    border: 2px var(--background-color) solid;
 }
 
 .button-w:hover {

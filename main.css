@@ -1,5 +1,11 @@
+/*スパゲティなCSSなので正直あまり見ないで欲しい。*/
+
 :root {
     --margin: 5vw;
+    --background-color: white;
+    --font-color: black;
+    --primary-color: #23651C;
+    --secondary-color: rgb(255, 115, 0);
 }
 
 @media only screen and (min-width: 1100px) {
@@ -8,27 +14,9 @@
     }
 }
 
-@media (prefers-color-scheme: light) {
-    :root {
-        --background-color: white;
-        --font-color: black;
-        --primary-color: #23651C;
-        --secondary-color: rgb(255, 115, 0);
-    }
-}
-
-@media (prefers-color-scheme: dark) {
-    :root {
-        --background-color: rgb(54, 54, 54);
-        --font-color: white;
-        --primary-color: #74b66e;
-        --secondary-color: orange;
-    }
-}
-
 body {
     font-family: "Helvetica Neue", HelveticaNeue, YuGothic, "Yu Gothic Medium", "Yu Gothic", Verdana, -apple-system, BlinkMacSystemFont, Roboto, "Segoe UI", Meiryo, sans-serif;
-    font-feature-settings: "palt" 1;
+    font-feature-settings: "palt"1;
     letter-spacing: .8px;
     display: block;
     font-size: 17px;
@@ -44,19 +32,34 @@ h2 {
     font-size: 34px;
 }
 
+.article h2 {
+    margin-top: 44px;
+    margin-bottom: 22px;
+}
+
 h3 {
     font-size: 26px
 }
 
-section>p>span, li>span {
+section>p>span, li>span, blockquote>p>span {
     color: var(--primary-color);
     font-weight: bold;
     text-decoration: underline;
 }
 
-p, li {
+p {
     line-height: 2;
     margin: 18px 0 18px 0;
+}
+
+li {
+    line-height: 1.8;
+    margin: 9px 0 9px 0;
+}
+
+::selection {
+    background: var(--primary-color);
+    color: var(--background-color);
 }
 
 .button-b {
@@ -120,7 +123,7 @@ p, li {
     border-bottom: 5px solid gray;
 }
 
-#website-header {
+.website #website-header {
     width: 100%;
     height: 90vh;
     text-align: center;
@@ -135,7 +138,34 @@ p, li {
     background-repeat: no-repeat;
 }
 
-#website-header::before {
+.article #website-header {
+    width: 100%;
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    height: 80px;
+
+}
+
+
+#report-header {
+    width: 100%;
+    position: relative;
+    height: 700px;
+}
+
+#header-bg {
+    width: 100%;
+    height: 700px;
+    position: absolute;
+    background-image: url("./img/header-bg.jpg");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    margin: -30px 0 0 0;
+}
+
+
+#header-bg::before {
     position: absolute;
     content: '';
     top: 0;
@@ -147,13 +177,68 @@ p, li {
     z-index: 1;
 }
 
-#website-header-inner {
+
+.website #website-header::before {
+    position: absolute;
+    content: '';
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: inherit;
+    filter: blur(10px);
+    z-index: 1;
+}
+
+
+
+.website #website-header-inner {
     margin: auto;
+    height: fit-content;
     padding: var(--margin);
     background-color: var(--primary-color);
     color: var(--background-color);
-    z-index: 2;
+    z-index: 1;
 }
+
+#report-header-inner {
+    position: absolute;
+    width: auto;
+    max-width: 1100px;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    color: var(--background-color);
+    z-index: 5;
+    padding: 0 18px;
+    box-sizing: border-box;
+}
+
+#report-header-inner>p {
+    width: fit-content;
+    background-color: var(--background-color);
+    color: var(--font-color);
+    padding: 10px;
+}
+
+#report-header-inner>ul>li {
+    width: fit-content;
+    background-color: var(--background-color);
+    color: var(--font-color);
+    padding: 10px;
+}
+
+#report-header-inner>h1 {
+    width: fit-content;
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    padding: 10px;
+    margin: 80px 0 0 0;
+
+}
+
 
 #content-wrapper {
     overflow: hidden;
@@ -168,6 +253,32 @@ section {
     width: calc(100% - 18px * 2);
     max-width: 800px;
     margin: 80px auto 80px auto;
+}
+
+.article section {
+    width: auto;
+    max-width: auto;
+    margin: auto;
+}
+
+.article article {
+    width: auto;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0 18px;
+    box-sizing: border-box;
+}
+
+.article figure {
+    width: 100%;
+    margin: 30px 0 0 0;
+    padding: 0;
+}
+
+.article figure>img {
+    display: block;
+    width: 100%;
+    height: auto;
 }
 
 #nav {
@@ -336,7 +447,7 @@ section>h3 {
     color: var(--font-color);
 }
 
-#website-footer {
+.website #website-footer {
     overflow-x: hidden;
 }
 
@@ -386,7 +497,7 @@ section>h3 {
     background-image: url("./img/logo-profile.png");
     background-size: cover;
     position: absolute;
-    top: calc( -1*(40px + 2px));
+    top: calc(-1*(40px + 2px));
     left: calc(50% - (80px / 2));
     width: 80px;
     height: 80px;
@@ -397,7 +508,7 @@ section>h3 {
     z-index: 1;
 }
 
-#to-the-menu {
+#to-the-menu, #to-the-toppage {
     width: 50px;
     height: 50px;
     background-color: var(--primary-color);
@@ -414,13 +525,21 @@ section>h3 {
     position: relative;
 }
 
+#ttt-inner {
+    display: block;
+    content: url('/img/icon-home.svg');
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
 #ttm-inner::before {
     content: "";
     background-color: var(--background-color);
     position: absolute;
     height: 3px;
     width: 25px;
-    transform: translateX(4px) translateY(22px) rotate( -45deg);
+    transform: translateX(4px) translateY(22px) rotate(-45deg);
 }
 
 #ttm-inner::after {
@@ -429,5 +548,76 @@ section>h3 {
     position: absolute;
     height: 3px;
     width: 25px;
-    transform: translateX(calc(100% - 4px)) translateY(22px) rotate( 45deg);
+    transform: translateX(calc(100% - 4px)) translateY(22px) rotate(45deg);
+}
+
+
+
+.box {
+    border: 2px solid var(--font-color);
+    margin: 60px 0 30px 0;
+    padding: 15px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.box::before {
+    content: attr(data-label);
+    display: block;
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    margin-left: -2px;
+    font-size: 15px;
+    background-color: var(--font-color);
+    color: var(--background-color);
+    width: fit-content;
+    padding: 0 3px;
+
+}
+
+
+.article #website-footer {
+
+    width: 100%;
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    font-size: 15px;
+    padding: 30px 0 50px 0;
+
+
+
+}
+
+.article #website-footer-inner {
+    width: 100%;
+    max-width: 1100px;
+    margin: auto;
+
+}
+
+.article #website-footer ul {
+    margin: 0;
+    list-style: none;
+}
+
+
+
+.article #website-footer a {
+    color: var(--background-color);
+}
+
+.article article footer {
+    word-break: break-all;
+}
+
+.article table {
+    width: 100%;
+    border-collapse: collapse;
+
+}
+
+.article tr, .article td {
+    border: solid 1px var(--font-color);
+    padding: 18px;
 }
